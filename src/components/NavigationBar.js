@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as ReactSearchLogo } from "../assets/searchicon.svg";
 
-const MainContainer = styled.div`
+const MainContainer = styled.nav`
   background-color: #2d3c4a;
   width: 100vw;
   height: 10vh;
