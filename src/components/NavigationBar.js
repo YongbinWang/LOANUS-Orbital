@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as ReactSearchLogo } from "../assets/searchicon.svg";
+import { useAuth } from "../database/auth";
+import SignInBtn from "./SignInBtn";
 
 const MainContainer = styled.nav`
   background-color: #2d3c4a;
@@ -19,10 +21,11 @@ const NavLink = styled(Link)`
 const SearchIcon = styled(ReactSearchLogo)``;
 
 function NavigationBar() {
+  const { user } = useAuth();
   return (
     <MainContainer>
       <NavLink to="/home">Home Page</NavLink>
-      <NavLink to="/profile"> Profile</NavLink>
+      { user ? <NavLink to="/profile"> Profile</NavLink> : <SignInBtn /> }
       <NavLink to="/create-request"> Create</NavLink>
       <SearchIcon></SearchIcon>
     </MainContainer>
