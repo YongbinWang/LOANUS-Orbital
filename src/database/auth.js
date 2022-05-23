@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from './setup';
 
 const authCtx = createContext({
@@ -8,7 +8,7 @@ const authCtx = createContext({
     user: null
 });
 
-function createAuthProvider() {
+function useAuthProvider() {
     const [ user, setUser ] = useState(null);
     const googleAuthProvider = new GoogleAuthProvider();
 
@@ -35,7 +35,7 @@ export const useAuth = () => {
 
 export function AuthProvider(props) {
     const children = props.children;
-    const authProvider = createAuthProvider();
+    const authProvider = useAuthProvider();
     return (
         <authCtx.Provider value={ authProvider } >{ children }</authCtx.Provider>
     );
