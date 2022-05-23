@@ -25,7 +25,7 @@ function NavigationBar() {
   return (
     <MainContainer>
       <NavLink to="/home">Home Page</NavLink>
-      { user ? <NavLink to="/profile"> Profile</NavLink> : <SignInBtn /> }
+      { user ? <NavLink to="/profile"> Profile</NavLink> : <SignInBtn url='/signin' /> }
       <NavLink to="/create-request"> Create</NavLink>
       <SearchIcon></SearchIcon>
     </MainContainer>
