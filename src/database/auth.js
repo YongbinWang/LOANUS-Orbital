@@ -22,6 +22,19 @@ function useAuthProvider() {
         });
     };
 
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+          if (user) {
+            setUser(user);
+          } else {
+            setUser(false);
+          }
+        });
+    
+        // Cleanup subscription on unmount
+        return () => unsubscribe();
+    }, []);
+
     return {
         signInWithGoogle,
         signOut,
