@@ -27,7 +27,7 @@ export default function ProfileBtn() {
     return (
         <div>
             <IconButton 
-              id="profile-link"
+              id="profile-btn"
               aria-controls={'profile-menu'}
               aria-haspopup="true"
               onClick={handleClick}
