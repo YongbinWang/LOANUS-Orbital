@@ -1,18 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
-import { Button, Menu } from '@mui/material';
+import { Button, IconButton, Menu } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { MenuItem } from '@mui/material';
 import { useAuth } from '../database/auth';
-
-const NavLink = styled(Link)`
-  color: white;
-`;
-
-const NavBtn = styled(Button)`
-    color: white
-`;
+import { AccountCircle } from '@mui/icons-material';
 
 export default function ProfileLink() {
     const [ anchorEl, setAnchorEl ] = useState(null);
@@ -33,12 +26,14 @@ export default function ProfileLink() {
 
     return (
         <div>
-            <NavBtn 
+            <IconButton 
               id="profile-link"
               aria-controls={'profile-menu'}
               aria-haspopup="true"
               onClick={handleClick}
-              variant="text">Profile</NavBtn>
+              variant="text">
+                  <AccountCircle />
+              </IconButton>
             <Menu
               id="profile-menu"
               anchorEl={anchorEl}
