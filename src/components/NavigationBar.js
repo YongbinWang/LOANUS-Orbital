@@ -7,6 +7,7 @@ import ProfileBtn from "./ProfileBtn";
 import { IconButton } from "@mui/material";
 import { AddCircleOutline } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
+import CreateBtn from "./CreateBtn";
 
 const MainContainer = styled.nav`
   background-color: #2d3c4a;
@@ -28,9 +29,7 @@ function NavigationBar() {
     <MainContainer>
       <NavLink to="/home">Home Page</NavLink>
       { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
-      <IconButton component={ Link } to="/create-request">
-        <AddCircleOutline />
-      </IconButton>
+      <CreateBtn />
       <SearchIcon />
     </MainContainer>
   );
