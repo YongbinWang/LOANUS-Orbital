@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from "styled-components";
-import { Button, IconButton, Menu } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+import { IconButton, Menu } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import { useAuth } from '../database/auth';
 import { AccountCircle } from '@mui/icons-material';
