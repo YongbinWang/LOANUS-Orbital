@@ -7,7 +7,7 @@ import { MenuItem } from '@mui/material';
 import { useAuth } from '../database/auth';
 import { AccountCircle } from '@mui/icons-material';
 
-export default function ProfileLink() {
+export default function ProfileBtn() {
     const [ anchorEl, setAnchorEl ] = useState(null);
     const open = Boolean(anchorEl);
     const { signOut } = useAuth();

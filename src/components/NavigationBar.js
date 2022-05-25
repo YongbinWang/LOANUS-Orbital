@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as ReactSearchLogo } from "../assets/searchicon.svg";
 import { useAuth } from "../database/auth";
 import SignInBtn from "./SignInBtn";
-import ProfileLink from "./ProfileLink";
+import ProfileBtn from "./ProfileBtn";
 import { IconButton } from "@mui/material";
 import { AddCircleOutline } from "@mui/icons-material";
 
@@ -28,7 +28,7 @@ function NavigationBar() {
   return (
     <MainContainer>
       <NavLink to="/home">Home Page</NavLink>
-      { user ? <ProfileLink> Profile</ProfileLink> : <SignInBtn url='/signin' /> }
+      { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
       <IconButton component={ Link } to="/create-request">
         <AddCircleOutline />
       </IconButton>
