@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as ReactSearchLogo } from "../assets/searchicon.svg";
 import { useAuth } from "../database/auth";
 import SignInBtn from "./SignInBtn";
+import ProfileLink from "./ProfileLink";
 
 const MainContainer = styled.nav`
   background-color: #2d3c4a;
@@ -25,7 +26,7 @@ function NavigationBar() {
   return (
     <MainContainer>
       <NavLink to="/home">Home Page</NavLink>
-      { user ? <NavLink to="/profile"> Profile</NavLink> : <SignInBtn url='/signin' /> }
+      { user ? <ProfileLink> Profile</ProfileLink> : <SignInBtn url='/signin' /> }
       <NavLink to="/create-request"> Create</NavLink>
       <SearchIcon></SearchIcon>
     </MainContainer>

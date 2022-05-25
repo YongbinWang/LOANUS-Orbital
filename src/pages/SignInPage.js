@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import styled from "styled-components";
 import { useAuth } from "../database/auth";
 
@@ -10,7 +11,7 @@ function SignInPage() {
 
   return (
     <ContainerStyle>
-      <button onClick={signInWithGoogle}>Sign In</button>
+      <Button onClick={ signInWithGoogle }>Sign In</Button>
     </ContainerStyle>
   );
 }
