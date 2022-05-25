@@ -6,6 +6,7 @@ import SignInBtn from "./SignInBtn";
 import ProfileBtn from "./ProfileBtn";
 import { IconButton } from "@mui/material";
 import { AddCircleOutline } from "@mui/icons-material";
+import SearchIcon from "@mui/icons-material/Search";
 
 const MainContainer = styled.nav`
   background-color: #2d3c4a;
@@ -21,8 +22,6 @@ const NavLink = styled(Link)`
   color: white;
 `;
 
-const SearchIcon = styled(ReactSearchLogo)``;
-
 function NavigationBar() {
   const { user } = useAuth();
   return (
@@ -32,7 +31,7 @@ function NavigationBar() {
       <IconButton component={ Link } to="/create-request">
         <AddCircleOutline />
       </IconButton>
-      <SearchIcon></SearchIcon>
+      <SearchIcon />
     </MainContainer>
   );
 }
