@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { IconButton, Menu } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import { AddCircleOutline } from '@mui/icons-material';
+import { ShrinkDiv } from './FlexDiv';
 
 export default function CreateBtn() {
     const [ anchorEl, setAnchorEl ] = useState(null);
@@ -16,7 +17,7 @@ export default function CreateBtn() {
     }
 
     return (
-        <div>
+        <ShrinkDiv>
             <IconButton 
               id="create-btn"
               aria-controls={'create-menu'}
@@ -37,6 +38,6 @@ export default function CreateBtn() {
                 <MenuItem component={ Link } to='/create-request'>List Item</MenuItem>
                 <MenuItem component={ Link } to='/create-request'>Request Item</MenuItem>
             </Menu>
-        </div>
+        </ShrinkDiv>
     );
 }

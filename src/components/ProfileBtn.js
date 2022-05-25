@@ -4,6 +4,7 @@ import { IconButton, Menu } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import { useAuth } from '../database/auth';
 import { AccountCircle } from '@mui/icons-material';
+import { ShrinkDiv } from './FlexDiv';
 
 export default function ProfileBtn() {
     const [ anchorEl, setAnchorEl ] = useState(null);
@@ -23,13 +24,14 @@ export default function ProfileBtn() {
     }
 
     return (
-        <div>
+        <ShrinkDiv>
             <IconButton 
               id="profile-btn"
               aria-controls={'profile-menu'}
               aria-haspopup="true"
               onClick={handleClick}
-              variant="text">
+              variant="text"
+              color="secondary">
                   <AccountCircle />
               </IconButton>
             <Menu
@@ -44,6 +46,6 @@ export default function ProfileBtn() {
                 <MenuItem component={ Link } to='/profile'>Account</MenuItem>
                 <MenuItem onClick={logOutNow}>Sign Out</MenuItem>
             </Menu>
-        </div>
+        </ShrinkDiv>
     );
 }
