@@ -8,6 +8,7 @@ import { IconButton } from "@mui/material";
 import { AddCircleOutline } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 import CreateBtn from "./CreateBtn";
+import SearchBar from "./SearchBar";
 
 const MainContainer = styled.nav`
   background-color: #2d3c4a;
@@ -30,7 +31,7 @@ function NavigationBar() {
       <NavLink to="/home">Home Page</NavLink>
       { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
       <CreateBtn />
-      <SearchIcon />
+      <SearchBar />
     </MainContainer>
   );
 }
