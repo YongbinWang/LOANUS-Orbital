@@ -6,9 +6,11 @@ import ProfileBtn from "./ProfileBtn";
 import CreateBtn from "./CreateBtn";
 import SearchBar from "./SearchBar";
 import { Button } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./Theme";
 
 const MainContainer = styled.nav`
-  background-color: #2d3c4a;
+  background-color: ${theme.palette.secondary.main};
   height: 10vh;
   display: flex;
   flex-direction: row;
@@ -31,12 +33,14 @@ const HomeBtn = styled(Button)`
 function NavigationBar() {
   const { user } = useAuth();
   return (
-    <MainContainer>
-      <HomeBtn component={ Link } to="/home">Home Page</HomeBtn>
-      <SearchBar />
-      <CreateBtn />
-      { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
-    </MainContainer>
+    <ThemeProvider theme={ theme }>
+      <MainContainer>
+        <HomeBtn component={ Link } to="/home" color="secondary">Home Page</HomeBtn>
+        <SearchBar />
+        <CreateBtn />
+        { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
+      </MainContainer>
+    </ThemeProvider>
   );
 }
 

@@ -30,7 +30,8 @@ export default function ProfileBtn() {
               aria-controls={'profile-menu'}
               aria-haspopup="true"
               onClick={handleClick}
-              variant="text">
+              variant="text"
+              color="secondary">
                   <AccountCircle />
               </IconButton>
             <Menu
