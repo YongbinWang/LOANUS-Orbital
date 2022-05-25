@@ -29,9 +29,9 @@ function NavigationBar() {
   return (
     <MainContainer>
       <NavLink to="/home">Home Page</NavLink>
-      { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
-      <CreateBtn />
       <SearchBar />
+      <CreateBtn />
+      { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
     </MainContainer>
   );
 }
