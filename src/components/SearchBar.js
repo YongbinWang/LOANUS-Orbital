@@ -6,12 +6,18 @@ const SearchBarDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1ex;
+    flex: 1 0 auto;
+`;
+
+const GrowTextField = styled(TextField)`
+    flex: 1 0 auto;
 `;
 
 export default function SearchBar() {
     return (
         <SearchBarDiv>
-            <TextField
+            <GrowTextField
                 id="search-bar"
                 hiddenLabel
                 defaultValue="Search"

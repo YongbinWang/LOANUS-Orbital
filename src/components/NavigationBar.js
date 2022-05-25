@@ -18,6 +18,8 @@ const MainContainer = styled.nav`
 
 const NavLink = styled(Link)`
   color: white;
+  flex: 0 1 auto;
+  padding: 0ex 1ex;
 `;
 
 function NavigationBar() {
