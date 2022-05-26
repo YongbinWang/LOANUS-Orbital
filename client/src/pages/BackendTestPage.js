@@ -31,7 +31,7 @@ function BackendTestPage() {
       <div>
         {listofUsers.map((user) => {
           return (
-            <div>
+            <div key={user.name}>
               <h1>Name : {user.name}</h1>
               <h2>Age : {user.age}</h2>
               <h2>Username : {user.username}</h2>
