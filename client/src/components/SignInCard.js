@@ -35,17 +35,17 @@ export default function SignInCard() {
     const { signInWithGoogle } = useAuth();
     const [values, setValues] = useState({
         showPassword: false,
-      });
+    });
     
-      const handleClickShowPassword = () => {
+    const handleClickShowPassword = () => {
         setValues({
-          showPassword: !values.showPassword,
+            showPassword: !values.showPassword,
         });
-      };
+    };
     
-      const handleMouseDownPassword = (event) => {
+    const handleMouseDownPassword = (event) => {
         event.preventDefault();
-      };
+    };
 
     return (
       <FlexCard component="form" color="secondary">
