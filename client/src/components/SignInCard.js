@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useAuth } from "../database/auth";
 import { VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
 
 const FlexCard = styled(Card)`
@@ -36,6 +37,7 @@ export default function SignInCard() {
     const [values, setValues] = useState({
         showPassword: false,
     });
+    const navigate = useNavigate();
     
     const handleClickShowPassword = () => {
         setValues({
@@ -46,6 +48,18 @@ export default function SignInCard() {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
+    const asyncSignInGoogle = () => async () => signInWithGoogle();
+
+    const prevPage = () => {
+        navigate(-1);
+    }
+
+    const completeGoogleSignIn = () => {
+        asyncSignInGoogle()().then(() => {
+            prevPage();
+        });
+    }
 
     return (
       <FlexCard component="form" color="secondary">
@@ -82,7 +96,7 @@ export default function SignInCard() {
             variant="contained"
             color="success">Sign In</WideBtn>
           <Typography variant="body1">OR</Typography>
-          <WideBtn variant="contained" startIcon={<GoogleIcon />} onClick={signInWithGoogle}>Sign in with Google</WideBtn>
+          <WideBtn variant="contained" startIcon={<GoogleIcon />} onClick={ completeGoogleSignIn }>Sign in with Google</WideBtn>
           <WideBox>
               <Link component={Link} to="#">Can't log in?</Link>
               <Link component={Link} to="#">Create an account</Link>
