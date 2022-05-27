@@ -1,17 +1,20 @@
-import { Button } from "@mui/material";
 import styled from "styled-components";
-import { useAuth } from "../database/auth";
+import SignInCard from "../components/SignInCard";
 
 const ContainerStyle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
   background-color: aliceblue;
 `;
 
 function SignInPage() {
-  const { signInWithGoogle } = useAuth();
 
   return (
     <ContainerStyle>
-      <Button onClick={ signInWithGoogle }>Sign In</Button>
+      <SignInCard />
     </ContainerStyle>
   );
 }
