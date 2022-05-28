@@ -11,11 +11,11 @@ const LightTallAppIcon = styled(LightAppIcon)`
 `;
 
 export default function AppIcon(props) {
-    const { dark } = props;
+    const { dark, iconStyles } = props;
     if (dark) {
         return (
-            <DarkTallAppIcon/>
+            <DarkAppIcon style={iconStyles}/>
         );
     }
-    <LightTallAppIcon/>
+    return <LightAppIcon style={iconStyles}/>
 }

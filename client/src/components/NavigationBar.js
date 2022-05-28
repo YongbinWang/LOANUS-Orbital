@@ -19,12 +19,16 @@ const MainContainer = styled.nav`
   padding: 0ex 1ex;
 `;
 
+const iconStyles = {
+  alignSelf: "stretch"
+};
+
 function NavigationBar() {
   const { user } = useAuth();
   return (
     <ThemeProvider theme={ theme }>
       <MainContainer>
-        <AppBtn component={ Link } to="/home" color="secondary" dark="true"/>
+        <AppBtn component={ Link } to="/home" color="secondary" dark={true} iconStyles={iconStyles} />
         <SearchBar />
         <CreateBtn />
         { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
