@@ -31,7 +31,7 @@ function NavigationBar() {
         <AppBtn component={ Link } to="/home" color="secondary" dark={true} iconStyles={iconStyles} />
         <SearchBar />
         <CreateBtn />
-        { user ? <ProfileBtn> Profile</ProfileBtn> : <SignInBtn url='/signin' /> }
+        { user ? <ProfileBtn /> : <SignInBtn url='/signin' /> }
       </MainContainer>
     </ThemeProvider>
   );

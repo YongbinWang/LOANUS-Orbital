@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IconButton, Menu } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import { useAuth } from '../database/auth';
-import { AccountCircle } from '@mui/icons-material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { ShrinkDiv } from './FlexDiv';
 
 export default function ProfileBtn() {
@@ -29,10 +29,8 @@ export default function ProfileBtn() {
               id="profile-btn"
               aria-controls={'profile-menu'}
               aria-haspopup="true"
-              onClick={handleClick}
-              variant="text"
-              color="secondary">
-                  <AccountCircle />
+              onClick={handleClick}>
+                  <AccountCircleIcon />
               </IconButton>
             <Menu
               id="profile-menu"
