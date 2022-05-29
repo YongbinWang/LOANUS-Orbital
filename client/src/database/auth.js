@@ -46,6 +46,7 @@ function useAuthProvider() {
                 setIsGoogleSignIn(false);
                 return true;
             }
+            return false;
         });
     };
 
