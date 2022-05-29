@@ -1,6 +1,7 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from './setup';
+import Axios from "axios";
 
 const authCtx = createContext({
     signInWithGoogle: null,
@@ -10,35 +11,51 @@ const authCtx = createContext({
 
 function useAuthProvider() {
     const [ user, setUser ] = useState(null);
+    const [ isGoogleSignIn, setIsGoogleSignIn ] = useState(false);
     const googleAuthProvider = new GoogleAuthProvider();
 
+    const [ listOfUsers, setListOfUsers ] = useState([]);
+    useEffect(() => {
+        Axios.get("http://localhost:3001/getUsers").then((response) => {
+            setListOfUsers(response.data);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }, []);
+
     const signInWithGoogle = () => {
-        return signInWithPopup(auth, googleAuthProvider);
+        return signInWithPopup(auth, googleAuthProvider).then((result) => {
+            setUser(result.user);
+            setIsGoogleSignIn(true);
+        });
     };
 
     const signOut = () => {
-        return auth.signOut().then(() => {
-            setUser(false);
+        if (isGoogleSignIn) {
+            return auth.signOut().then(() => {
+                setUser(false);
+            });
+        }
+        setUser(false);
+    };
+
+    const signInUserPass = (username, password) => {
+        return listOfUsers.some((knownUser) => {
+            if(knownUser.username === username && knownUser.password === password) {
+                setUser(knownUser);
+                setIsGoogleSignIn(false);
+                return true;
+            }
+            return false;
         });
     };
 
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
-          if (user) {
-            setUser(user);
-          } else {
-            setUser(false);
-          }
-        });
-    
-        // Cleanup subscription on unmount
-        return () => unsubscribe();
-    }, []);
-
     return {
         signInWithGoogle,
+        signInUserPass,
         signOut,
-        user
+        user,
+        isGoogleSignIn
     };
 }
 
