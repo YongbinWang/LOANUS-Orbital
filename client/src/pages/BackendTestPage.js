@@ -17,12 +17,14 @@ function BackendTestPage() {
       name: name,
       age: age,
       username: username,
+      password: "orbital2022"
     }).then((response) => {
       alert("User Created");
       setlistofUsers([...listofUsers], {
         name: name,
         age: age,
         username: username,
+        password: "orbital2022"
       });
     });
   };

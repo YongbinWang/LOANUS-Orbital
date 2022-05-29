@@ -33,11 +33,18 @@ const WideFormControl = styled(FormControl)`
 `;
 
 export default function SignInCard() {
-    const { signInWithGoogle } = useAuth();
+    const { signInWithGoogle, signInUserPass } = useAuth();
+    const [ givenUsername, setGivenUsername ]  = useState("");
+    const [ givenPassword, setGivenPassword ] = useState("");
     const [values, setValues] = useState({
         showPassword: false,
     });
     const navigate = useNavigate();
+
+    const handleSignIn = (event) => {
+        event.preventDefault();
+        completeSignInUserPass(givenUsername, givenPassword);
+    };
     
     const handleClickShowPassword = () => {
         setValues({
@@ -61,8 +68,18 @@ export default function SignInCard() {
         });
     }
 
+    const asyncSignInUserPass = (username, password) => async () => signInUserPass(username, password);
+
+    const completeSignInUserPass = (username, password) => {
+        asyncSignInUserPass(username, password)().then((isSignedIn) => {
+            if(isSignedIn) {
+                prevPage();
+            }
+        });
+    }
+
     return (
-      <FlexCard component="form" color="secondary">
+      <FlexCard component="form" color="secondary" onSubmit={handleSignIn}>
           <Typography variant="body1">Log in to your account</Typography>
           <WideFormControl required variant="outlined">
               <InputLabel htmlFor="email">Email</InputLabel>
@@ -70,7 +87,8 @@ export default function SignInCard() {
                 required
                 id="email"
                 variant="outlined"
-                label="Email" />
+                label="Email"
+                onChange={(event) => setGivenUsername(event.target.value)} />
           </WideFormControl>
           <WideFormControl required variant="outlined">
               <InputLabel htmlFor="password">Password</InputLabel>
@@ -88,7 +106,7 @@ export default function SignInCard() {
                     </InputAdornment>
                 }
                 label="Password"
-                />
+                onChange={(event) => setGivenPassword(event.target.value)} />
           </WideFormControl>
           <WideBtn
             id="signin"
