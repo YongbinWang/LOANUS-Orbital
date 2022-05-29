@@ -60,7 +60,7 @@ app.post("/item-upload", upload.single("image"), (request, response, next) => {
     desc: request.body.description,
     image: {
       data: fs.readFileSync(
-        path.join(__dirname + "/uploads" + request.file.filename)
+        path.join(__dirname + "/uploads/" + request.file.filename)
       ),
       contentType: "image/png",
     },
@@ -70,11 +70,10 @@ app.post("/item-upload", upload.single("image"), (request, response, next) => {
       console.log(err);
     } else {
       item.save();
-      res.redirect("/item-upload");
     }
   });
 
-  request.send("Upload success");
+  response.send("Upload success");
 });
 
 app.listen(3001, () => {
