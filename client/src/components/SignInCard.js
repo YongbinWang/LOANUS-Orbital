@@ -82,12 +82,12 @@ export default function SignInCard() {
       <FlexCard component="form" color="secondary" onSubmit={handleSignIn}>
           <Typography variant="body1">Log in to your account</Typography>
           <WideFormControl required variant="outlined">
-              <InputLabel htmlFor="email">Email</InputLabel>
+              <InputLabel htmlFor="username">Email/Username</InputLabel>
               <OutlinedInput
                 required
-                id="email"
+                id="username"
                 variant="outlined"
-                label="Email"
+                label="Email/Username"
                 onChange={(event) => setGivenUsername(event.target.value)} />
           </WideFormControl>
           <WideFormControl required variant="outlined">
