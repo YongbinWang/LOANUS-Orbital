@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://YongbinWang.github.io/LOANUS-Orbital",
+  "homepage": "https://YongbinWang.github.io/LOANUS-Orbital",
   "dependencies": {
     "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.1",
