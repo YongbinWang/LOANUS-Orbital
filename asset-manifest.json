@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/LOANUS-Orbital/static/css/main.9071bff3.css",
+    "main.js": "/LOANUS-Orbital/static/js/main.c70f3470.js",
+    "index.html": "/LOANUS-Orbital/index.html",
+    "main.9071bff3.css.map": "/LOANUS-Orbital/static/css/main.9071bff3.css.map",
+    "main.c70f3470.js.map": "/LOANUS-Orbital/static/js/main.c70f3470.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9071bff3.css",
+    "static/js/main.c70f3470.js"
+  ]
+}
