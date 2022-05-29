@@ -25,6 +25,6 @@ app.post("/createUser", async (req, res) => {
   res.json(user);
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
   console.log("SERVER RUNNING");
 });
