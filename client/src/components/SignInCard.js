@@ -60,13 +60,13 @@ export default function SignInCard() {
 
     const prevPage = () => {
         navigate(-1);
-    }
+    };
 
     const completeGoogleSignIn = () => {
         asyncSignInGoogle()().then(() => {
             prevPage();
         });
-    }
+    };
 
     const asyncSignInUserPass = (username, password) => async () => signInUserPass(username, password);
 
@@ -76,7 +76,7 @@ export default function SignInCard() {
                 prevPage();
             }
         });
-    }
+    };
 
     return (
       <FlexCard component="form" color="secondary" onSubmit={handleSignIn}>
